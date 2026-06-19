@@ -2,6 +2,9 @@ import { Route, Routes ,Navigate} from 'react-router-dom'
 import { useState } from 'react'
 import './index.css'
 import Navbar from './components/Navbar'
+import Home from './pages/Home'
+import Result from './pages/Result'
+
 
 function App() {
  
@@ -9,7 +12,19 @@ function App() {
   return (
     <>
      <Navbar/>
+     <Routes>
+      <Route path='/'
+      element={<Navigate to='home'/>}/>
+
+      <Route path='/home' 
+      element={<Home/>}/>
+     <Route path='/result' 
+      element={<Result/>}/>
+     </Routes>
+    
+     
     </>
+    
   )
 }
 
