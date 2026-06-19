@@ -11,7 +11,6 @@ Emotune reads how you're feeling and gives you a Spotify playlist that actually 
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-CSS%20v3-06B6D4?style=for-the-badge&logo=tailwindcss)](https://tailwindcss.com)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](./LICENSE)
 
-![Emotune Banner](./public/banner.png)
 
 </div>
 
