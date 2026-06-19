@@ -96,119 +96,16 @@ emotune/
 ├── public/
 ├── src/
 │   ├── components/
-│   │   ├── MoodInput.jsx       # Main text input + mood chip display
-│   │   ├── MusicCard.jsx       # Spotify embed wrapper
-│   │   └── MoodChips.jsx       # Dynamic color mood tags
+│   │   ├── Navbar.jsx       # Main text input + mood chip display
+│   │  
 │   ├── pages/
 │   │   ├── Home.jsx
-│   │   └── Results.jsx
-│   ├── services/
-│   │   └── gemini.js           # Gemini API call + mood parsing logic
+│   │   └── Result.jsx
+│   │   └──History.jsx
 │   ├── App.jsx
 │   └── main.jsx
 ├── .env.example
 ├── index.html
 └── vite.config.js
-```
 
----
 
-## How It Works
-
-1. User types a mood description in natural language
-2. The input is sent to the Gemini API with a structured prompt
-3. Gemini returns a parsed mood object (emotion tags, energy level, tone)
-4. The app maps those tags to Spotify search queries
-5. Results are embedded directly via Spotify's iframe API
-6. Mood chips update visually to reflect the detected emotion
-
----
-
-## Contributing
-
-Contributions are welcome — but please read this before opening a PR.
-
-### What's Actually Needed Right Now
-
-Honest status: Emotune is early-stage. These are the real gaps:
-
-- [ ] **Better Spotify matching** — the current query logic is naive; emotionally nuanced moods don't always surface the right tracks
-- [ ] **Error handling** — Gemini API failures currently break silently; needs user-facing fallback states
-- [ ] **Loading states** — no skeleton/loader between input and results
-- [ ] **Mood history** — localStorage-based "recent moods" feature (design exists, not built)
-- [ ] **Mobile input UX** — keyboard behaviour on iOS is janky
-- [ ] **Tests** — zero test coverage right now
-
-If you want to pick something up, open an issue first and say what you're planning. Don't submit a PR for something not on this list without discussing it — it'll likely be closed.
-
-### How to Contribute
-
-```bash
-# Fork and clone
-git clone https://github.com/YOUR_USERNAME/emotune.git
-
-# Create a branch with a clear name
-git checkout -b fix/gemini-error-handling
-
-# Make your changes, then open a PR against main
-```
-
-**PR checklist before submitting:**
-- Does the feature/fix actually work locally?
-- Did you test on mobile viewport (375px)?
-- Is your branch up to date with `main`?
-- Did you write a clear PR description explaining *why*, not just *what*?
-
-PRs with vague descriptions ("fixed bug", "added feature") will be closed and asked to resubmit.
-
-### Code Style
-
-- Functional components only, no class components
-- Tailwind for all styling — no inline styles, no separate CSS files unless absolutely necessary
-- Descriptive variable names — no `data2`, `res`, `temp`
-- One component per file
-
----
-
-## Known Issues
-
-- Gemini free tier has rate limits — if you hit one, wait 60 seconds and retry
-- Spotify embeds don't autoplay due to browser policies — this is intentional, not a bug
-- Some mood descriptions produce irrelevant results; improving the Gemini prompt is an ongoing effort
-
----
-
-## Roadmap
-
-- [ ] Save and share mood playlists via URL
-- [ ] Mood journal (log your daily emotional state + music)  
-- [ ] Multi-language mood input support
-- [ ] Replace Spotify embeds with full Spotify Web Playback SDK (requires Spotify Premium auth)
-- [ ] Animation between mood states
-
----
-
-## About the Developer
-
-Built by **Muskan Mishra** — frontend developer, BCA 2026 graduate, and GSSoC contributor.
-
-This is one of two portfolio projects built to demonstrate real-world React development with AI API integration. The other is [Climora](https://github.com/muskanm07/climora), a deployed weather app.
-
-- GitHub: [@muskanm07](https://github.com/muskanm07)
-- LinkedIn: [Muskan Mishra](https://linkedin.com/in/muskanmishra)
-
----
-
-## License
-
-MIT — use it, fork it, build on it. Credit appreciated but not required.
-
----
-
-<div align="center">
-
-**If Emotune helped you find the right song at the right moment, give it a ⭐**
-
-*It takes 2 seconds and means a lot for a fresher's open-source portfolio.*
-
-</div>
