@@ -1,3 +1,6 @@
+> ⚠️ This project is under active development. 
+> UI is complete — Gemini and Spotify integration in progress.
+
 <div align="center">
 
 # 🎵 Emotune
