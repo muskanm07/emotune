@@ -10,12 +10,12 @@ export default function Home(){
         <button className="w-36 bg-[#1a1a1a] md:w-[100px] h-10 text-white border border-gray-500 rounded-lg">find my vibe</button>
         </form>
         <form className="flex justify-center items-center gap-4 my-8">
-            <button className="rounded-2xl bg-yellow-300/10 border border-yellow-300 text-yellow-300 px-5 py-1">happy</button>
+            <button className="rounded-2xl bg-yellow-300/10 border border-yellow-400/70 text-yellow-300 px-5 py-1">happy</button>
             <button className="rounded-2xl bg-blue-300/10 border border-blue-300 text-blue-300 px-5 py-1">sad</button>
-            <button className="rounded-2xl bg-emerald-300/20 border border-emerald-300 text-emerald-300 px-5 py-1">calm</button>
-            <button className="rounded-2xl bg-red-400/20 border border-red-400 text-red-400 px-5 py-1">angry</button>
-            <button className="rounded-2xl bg-pink-400/20 border border-pink-400 text-pink-400 px-5 py-1 ">romantic</button>
-            <button className="rounded-2xl bg-lime-400/20 border border-lime-400 text-lime-400 px-5 py-1 ">motivated</button>
+            <button className="rounded-2xl bg-emerald-300/10 border border-emerald-300 text-emerald-300 px-5 py-1">calm</button>
+            <button className="rounded-2xl bg-red-400/10 border border-red-400 text-red-400 px-5 py-1">angry</button>
+            <button className="rounded-2xl bg-pink-400/10 border border-pink-400 text-pink-400 px-5 py-1 ">romantic</button>
+            <button className="rounded-2xl bg-lime-400/10 border border-lime-400 text-lime-400 px-5 py-1 ">motivated</button>
         </form>
         </div>
     )

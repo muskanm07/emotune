@@ -10,11 +10,11 @@ export default function Navbar(){
       </div>
       <div className="flex text-white gap-8 text-sm text-gray-500 px-8">
        
-            <Link to ='/home' className="text-gray-400 hover:text-white">home</Link>
+            <Link to ='/home' className="text-gray-400 hover:text-white font-medium text-base">home</Link>
        
-            <Link to='/result' className="text-gray-400 hover:text-white">result</Link>
+            <Link to='/result' className="text-gray-400 hover:text-white font-medium text-base">result</Link>
      
-            <Link to='/history' className="text-gray-400 hover:text-white">about</Link>
+            <Link to='/history' className="text-gray-400 hover:text-white font-medium text-base">about</Link>
       </div>
       </nav>
     )

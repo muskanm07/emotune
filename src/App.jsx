@@ -4,6 +4,8 @@ import './index.css'
 import Navbar from './components/Navbar'
 import Home from './pages/Home'
 import Result from './pages/Result'
+import History from './pages/History'
+
 
 
 function App() {
@@ -20,6 +22,9 @@ function App() {
       element={<Home/>}/>
      <Route path='/result' 
       element={<Result/>}/>
+  
+     <Route path='/history' 
+      element={<History/>}/>
      </Routes>
     
      
