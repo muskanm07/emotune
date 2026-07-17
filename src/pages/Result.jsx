@@ -3,8 +3,8 @@ export default function Result({moods}){
     return(
        <div className="min-h-screen flex-col justify-center items-center my-8 gap-4 ">
         <div className=" py-4 px-4 bg-purple-200 border border-purple-400/30 rounded-xl mx-8 ">
-        <h1 className="font-bold text-purple-900/90 text-lg ">mood detected : {moods}</h1>
-        <p className="font-semibold text-sm text-purple-900/90">AI analysis— lo-fi, soft-indie, ambient</p>
+        <h1 className="font-bold text-purple-900/90 text-lg ">mood detected : {moods.mood}</h1>
+        <p className="font-semibold text-sm text-purple-900/90">{moods.genre}</p>
         </div>
         <p className="text-gray-300/80 py-8 px-8 font-medium">recommended songs</p>
         <div className="flex justify-center items-center gap-4 lg:gap-6 mx-6">

@@ -5,6 +5,7 @@ import Navbar from './components/Navbar'
 import Home from './pages/Home'
 import Result from './pages/Result'
 import History from './pages/History'
+import Loading from './components/Loading'
 
 
 
@@ -13,19 +14,22 @@ function App() {
      const [playlist,setPlaylist] = useState([]);
      const [history,setHistory] = useState([]);
      const [search,setSearch]=useState("");
-     const [loading,setLoading]=useState(false)
+     const [loading,setLoading]=useState(true)
+     const [error,setError]=useState("")
  
      
          const handleSearch=async(moodInput)=>{
+          setSearch("")
          try{
-            setLoading(true)
-             const response=await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent`,{
+            setLoading(false)
+            setError("")
+             const response=await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent`,{
               method:"POST",
               headers:{"Content-Type":"application/json",
                  "x-goog-api-key": import.meta.env.VITE_GEMINI_API_KEY
               },
               body:JSON.stringify({
-                contents:[{parts:[{text:`You are a mood analyzer for a music app.Your goal is to sooth user and give them best genre music according to their mood and give best genre to feel them relaxed and sooth. Based on this mood: "${moodInput}", respond ONLY with JSON in this exact format: {"mood": "two word", "genre": "short genre suggestion"}`}]}]
+                contents:[{parts:[{text:`You are a mood analyzer for a music app.Your goal is to sooth user and give them best genre music according to their mood and give best genre to feel them relaxed and sooth. Based on this mood: "${moodInput}", respond ONLY with JSON in this exact format: {"mood": "one word", "genre": "short genre suggestion"}`}]}]
               })
             })
              const data= await response.json();
@@ -34,16 +38,18 @@ function App() {
              
 
                          if(!response.ok){
+                          setError("something went wrong")
               console.log("API Error",data)
               return;
             }
-            //  const parsed=JSON.parse(data.candidates[0].content.parts[0].text);
-            //  console.log(data.candidates[0].content.parts[0].text);
-            //  setMoods(parsed);
+             const parsed=JSON.parse(data.candidates[0].content.parts[0].text);
+             console.log(data.candidates[0].content.parts[0].text);
+             setMoods(parsed);
            }catch(e){
+            setError("Server Error")
            console.log("error",e);
          }finally{
-          setLoading(false)
+          setLoading(true)
          }
          }
       
@@ -57,7 +63,7 @@ function App() {
       element={<Navigate to='home'/>}/>
 
       <Route path='/home' 
-      element={<Home search={search} setSearch={setSearch} handleSearch={handleSearch}/>}/>
+      element={<Home search={search} setSearch={setSearch} handleSearch={handleSearch} loading={loading} setError={setError} error={error}/>}/>
      <Route path='/result' 
       element={<Result search={search} moods={moods}/>}/>
   
