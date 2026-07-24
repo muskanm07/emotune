@@ -1,5 +1,7 @@
 @import "tailwindcss";
-body {
-  background-color: #1a1a1a;
-  
+ *{
+  box-sizing:border-box;
+} 
+body{
+ overflow-x: hidden;
 }
