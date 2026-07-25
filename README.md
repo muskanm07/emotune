@@ -1,21 +1,14 @@
-> ⚠️ This project is under active development. 
-> UI is complete — Gemini and Spotify integration in progress.
-
-<div align="center">
-
 # 🎵 Emotune
 
 **Your mood. Your music. Zero guessing.**
 
-Emotune reads how you're feeling and gives you a Spotify playlist that actually fits — not a generic "sad" queue, but music matched to your specific emotional state through AI.
+Emotune reads how you're feeling and gives you a playlist that actually fits — not a generic "sad" queue, but music matched to your specific emotional state through AI.
 
-[![React](https://img.shields.io/badge/React-18-61DAFB?style=for-the-badge&logo=react)](https://react.dev)
-[![Gemini API](https://img.shields.io/badge/Gemini-API-4285F4?style=for-the-badge&logo=google)](https://ai.google.dev)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind-CSS%20v3-06B6D4?style=for-the-badge&logo=tailwindcss)](https://tailwindcss.com)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](./LICENSE)
-
-
-</div>
+![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-Build-646CFF?logo=vite&logoColor=white)
+![Gemini API](https://img.shields.io/badge/AI-Gemini_API-8E75B2?logo=googlegemini&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind-CSS-38BDF8?logo=tailwindcss&logoColor=white)
+![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
 
 ---
 
@@ -23,9 +16,9 @@ Emotune reads how you're feeling and gives you a Spotify playlist that actually 
 
 Most music apps ask you to pick a mood from a dropdown. But moods aren't dropdowns — they're messy, layered, and specific.
 
-Emotune lets you describe exactly how you feel in your own words. The Gemini AI interprets it and surfaces Spotify tracks that fit the emotional texture of what you wrote — not just the genre, but the *feeling*.
+Emotune lets you describe exactly how you feel in your own words. The Gemini API interprets it and surfaces tracks that fit the emotional texture of what you wrote — not just the genre, but the feeling.
 
-Type `"anxious about tomorrow but trying to stay calm"` and get something completely different from `"sad"`. That's the point.
+Type *"anxious about tomorrow but trying to stay calm"* and get something completely different from *"sad."* That's the point.
 
 ---
 
@@ -33,8 +26,9 @@ Type `"anxious about tomorrow but trying to stay calm"` and get something comple
 
 - **Free-text mood input** — describe your emotion in plain language, no categories
 - **AI mood interpretation** — Gemini API parses emotional nuance, not just keywords
-- **Spotify embed playback** — listen directly in the app, no redirects
+- **Instant track previews** — powered by the iTunes API, no account or login required
 - **Mood color chips** — visual mood tags that update dynamically with your input
+- **Mood history** — revisit past moods and the tracks they surfaced
 - **Dark mode UI** — purple-accented, easy on the eyes
 - **Fully responsive** — works on mobile and desktop
 
@@ -47,7 +41,7 @@ Type `"anxious about tomorrow but trying to stay calm"` and get something comple
 | Frontend | React 18 + Vite |
 | Styling | Tailwind CSS v3 |
 | AI | Google Gemini API (free tier) |
-| Music | Spotify Embed API |
+| Music | iTunes Search API |
 | Routing | React Router v6 |
 | Deployment | Netlify |
 
@@ -58,7 +52,7 @@ Type `"anxious about tomorrow but trying to stay calm"` and get something comple
 ### Prerequisites
 
 - Node.js v18+
-- A free [Google AI Studio](https://aistudio.google.com) API key (for Gemini)
+- A free Google AI Studio API key (for Gemini)
 
 ### Local Setup
 
@@ -98,16 +92,30 @@ emotune/
 ├── public/
 ├── src/
 │   ├── components/
-│   │   ├── Navbar.jsx       # Main text input + mood chip display
-│   │  
+│   │   └── Navbar.jsx       # Main text input + mood chip display
 │   ├── pages/
 │   │   ├── Home.jsx
-│   │   └── Result.jsx
-│   │   └──History.jsx
+│   │   ├── Result.jsx
+│   │   └── History.jsx
 │   ├── App.jsx
 │   └── main.jsx
 ├── .env.example
 ├── index.html
 └── vite.config.js
+```
 
+---
 
+## How It Works
+
+1. You type how you're feeling, in your own words.
+2. Gemini interprets the emotional tone and nuance behind the text.
+3. Emotune queries the iTunes Search API for tracks that match the interpreted mood.
+4. Song previews are returned with mood color chips, ready to play.
+5. Your mood and its results are saved to History for later.
+
+---
+
+## License
+
+MIT © [Muskan](https://github.com/muskanm07)
