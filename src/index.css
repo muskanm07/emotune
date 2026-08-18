@@ -5,3 +5,8 @@
 body{
  overflow-x: hidden;
 }
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  background-color: #02040F; /* same as your Home page bg, as a fallback */
+}
