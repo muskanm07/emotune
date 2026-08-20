@@ -4,8 +4,86 @@ import {FaGithub,FaLinkedin} from 'react-icons/fa'
 
 function Footer() {
   return (
-    <footer className="flex justify-center items-center w-full py-6 px-4 mt-12 border-t border-white/20 text-center text-md text-gray-300 gap-4 flex-wrap sm:text-sm">
-      <p className="flex items-center gap-1">
+    <footer className="w-full mt-12 border-t border-[#24243D] bg-[#0A0B19] px-6 py-10">
+     {/* <footer className="w-full mt-12 border-t border-[#24243D] bg-[#0A0B19] px-6 py-10"> */}
+  <div className="max-w-6xl mx-auto flex justify-between items-center gap-5">
+
+    <div className=" text-[#A7A7B8]">
+     <h2 className="text-2xl font-bold bg-gradient-to-r from-[#FF4FA3] to-[#A855F7] bg-clip-text text-transparent">
+  ♪ Emotune
+</h2>                       
+     <p className="text-[#A7A7B8] text-sm">Feel it. Play it.</p>                
+   <p className="text-[#6F7085] text-sm">Your mood, your music</p>
+   <p className=" bg-[#101124]
+        rounded-xl
+        px-2
+        border border-[#24243D]
+        hover:border-[#FF4FA3]
+        hover:bg-[#FF4FA3]/10">Made for every mood.   </p>
+    </div>
+
+    <div className="flex flex-col justify-between items-center gap-2">
+     <p className="text-[#A7A7B8] text-sm ">explore</p> 
+      <p className="text-[#A7A7B8] text-sm">Home</p> 
+       <p className="text-[#A7A7B8] text-sm">Discover</p> 
+        <p className="text-[#A7A7B8] text-sm">Mood Analyzer</p> 
+        <p className="text-[#A7A7B8] text-sm">Connect</p>
+
+     <a
+        href="https://github.com/muskanm07"
+        target="_blank"
+        rel="noreferrer"
+        className="flex items-center 
+        gap-2 text-[#A7A7B8] 
+        hover:text-white 
+        transition-colors
+        bg-[#101124]
+        rounded-xl
+        px-2
+        border border-[#24243D]
+        hover:border-[#FF4FA3]
+        hover:bg-[#FF4FA3]/10"
+      >
+        <FaGithub size={18} className="hover:text-[#FF4FA3]" />
+        GitHub
+      </a>
+
+      <a
+        href="https://www.linkedin.com/in/muskan-maurya-1344202b2/"
+        target="_blank"
+        rel="noreferrer"
+        className="flex items-center
+         gap-2 text-[#A7A7B8] 
+         hover:text-white 
+         transition-colors
+         bg-[#101124]
+        rounded-xl
+        px-2
+        border border-[#24243D]
+        hover:border-[#FF4FA3]
+        hover:bg-[#FF4FA3]/10">
+        <FaLinkedin size={18} className="hover:text-[#FF4FA3]"/>
+        LinkedIn
+      </a>
+   
+
+    <p className="text-sm text-[#6F7085]">
+      Built with React · Tailwind CSS · Gemini API · iTunes API
+    </p>
+
+    {/* <p className="text-xs text-[#6F7085]">
+      © 2026 Emotune · Your mood. Your soundtrack.
+    </p> */}
+ </div>
+  </div>
+  <div className="flex justify-between items-center">
+    <p className="text-xs text-[#6F7085]">
+      © 2026 Emotune · Your mood. Your soundtrack.
+    </p>
+    <p className="text-xs"> Made with ♡ for music lovers</p>
+  </div>
+
+      {/* <p className="flex items-center gap-1">
         Made with <Heart size={16} className="text-pink-400" /> by Muskan
       
       </p>
@@ -15,7 +93,7 @@ function Footer() {
    <a className="text-white text-sm flex justify-center itmes-center gap-2" href="https://www.linkedin.com/in/muskan-maurya-1344202b2/" target="_blank"><FaLinkedin size={18}/> LinkedIn</a>
     <p className="mt-1 text-sm text-gray-300">
         Built with React · Tailwind CSS · Gemini API · iTunes API
-      </p>
+      </p> */}
     </footer>
   );
 }
