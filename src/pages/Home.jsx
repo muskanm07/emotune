@@ -30,10 +30,10 @@ export default function Home({search,setSearch,handleSearch,loading,error,setErr
     {/* Hero */}
 <div className="relative ">
 
-   <div className="absolute right-[-10px] top-[40px] w-100 h-100 blur-[80px] rounded-full bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 opacity-40 pointer-events-none">
+   <div className="absolute right-[-10px] top-[40px] w-100 h-100 blur-[60px] rounded-full bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 opacity-20 pointer-events-none hidden md:block">
     {/* <div class="w-40 h-40 rounded-full bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 opacity-80 animate-pulse"> */}
   </div>
-   <div className="absolute right-[-10px] top-[40px] w-96 h-96 rounded-full bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 pointer-events-none">
+   <div className="absolute right-[-10px] top-[40px] w-96 h-96 rounded-full bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 pointer-events-none hidden md:block">
   <img
     src={girlImg}
     alt=""
