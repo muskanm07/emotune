@@ -12,7 +12,7 @@ import Footer from './components/Footer'
 
 function App() {
       const navigate=useNavigate();
-     const [playlist,setPlaylist] = useState([]);
+    //  const [playlist,setPlaylist] = useState([]);
      const [history,setHistory] = useState(()=>{
        const searchSaved=localStorage.getItem('parsed')
        return searchSaved?JSON.parse(searchSaved):[]
@@ -22,7 +22,7 @@ function App() {
      const [error,setError]=useState("")
      const [moods,setMoods] = useState(()=>{
     const saved=localStorage.getItem('recentmoods')
-    return saved?JSON.parse(saved):[]
+    return saved?JSON.parse(saved):null;
      })
      useEffect(()=>{
             localStorage.setItem('parsed',JSON.stringify(history))
@@ -40,8 +40,28 @@ function App() {
             method: "POST",
             headers: { "Content-Type": "application/json" },
            body: JSON.stringify({
-          prompt: `You are a mood analyzer for a music app.Your goal is to sooth user and give them best genre music according to their mood and give best genre to feel them relaxed and sooth and give best song suggestions according to their mood. Based on this mood: "${moodInput}", respond ONLY with JSON in this exact format: {"mood": "one word", "genre": "short genre suggestion"}`
-  })
+//           prompt: `You are a mood analyzer for a music app.Your goal is to sooth user and give them best genre music according to their mood and give best genre to feel them relaxed and sooth and give best song suggestions according to their mood. Based on this mood: "${moodInput}", respond ONLY with JSON in this exact format: {"mood": "one word", "genre": "short genre suggestion"
+  prompt: `You are a music recommendation engine for a mood-based music app called Emotune.
+Analyze the user's mood and choose music that genuinely matches it.
+For the mood "${moodInput}", return ONLY valid JSON in exactly this format:
+
+{
+  "mood": "one word describing the mood",
+  "genre": "one specific music genre",
+  "artists": [
+    "artist 1",
+    "artist 2",
+    "artist 3",
+    "artist 4",
+    "artist 5"
+  ]
+}
+
+Choose 5 real, well-known artists whose actual songs fit the user's mood and genre.
+Do not suggest type beats, instrumental artists, generic terms, playlists, or fictional artists.
+Prefer artists with a large catalog of real songs available on common music platforms.
+Do not include explanations or markdown.`
+})
 })
              
           //  console.log(data.candidates[0].content.parts[0].text);
@@ -80,7 +100,7 @@ function App() {
      <Routes>
       <Route path='/'
       element={<Navigate to='home'/>}/>
-``
+
       <Route path='/home' 
       element={<Home search={search} setSearch={setSearch} handleSearch={handleSearch} loading={loading} setError={setError} error={error}/>}/>
      <Route path='/result' 
