@@ -28,7 +28,7 @@ async function searchTracks(artists) {
       index === self.findIndex((t) => t.trackId === track.trackId)
   );
 
-  return uniqueTracks.slice(0, 10);
+  return uniqueTracks.slice(0, 25);
 }
 
 export default function Result({ moods, setError, error }) {
