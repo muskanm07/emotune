@@ -12,7 +12,8 @@ import Footer from './components/Footer'
 
 function App() {
       const navigate=useNavigate();
-    //  const [playlist,setPlaylist] = useState([]);
+    const [darkMode, setDarkMode] = useState(true);
+
      const [history,setHistory] = useState(()=>{
        const searchSaved=localStorage.getItem('parsed')
        return searchSaved?JSON.parse(searchSaved):[]
@@ -66,7 +67,9 @@ Do not include explanations or markdown.`
              
           //  console.log(data.candidates[0].content.parts[0].text);
              
-               const data=await response.json();   
+              const text = await response.text();
+               console.log("STATUS:", response.status);
+             console.log("RESPONSE:", text);  
                          if(!response.ok){
                           setError("something went wrong")
                       // console.log("API Error",data)
@@ -96,21 +99,23 @@ Do not include explanations or markdown.`
 
   return (
     <div>
-     <Navbar/>
+       
+   
+     <Navbar darkMode={darkMode} setDarkMode={setDarkMode}/>
      <Routes>
       <Route path='/'
       element={<Navigate to='home'/>}/>
 
       <Route path='/home' 
-      element={<Home search={search} setSearch={setSearch} handleSearch={handleSearch} loading={loading} setError={setError} error={error}/>}/>
+      element={<Home search={search} setSearch={setSearch} handleSearch={handleSearch} loading={loading} setError={setError} error={error} darkMode={darkMode} setDarkMode={setDarkMode}/>}/>
      <Route path='/result' 
-      element={<Result moods={moods} setError={setError} error={error} />}/>
+      element={<Result moods={moods} setError={setError} error={error} darkMode={darkMode} setDarkMode={setDarkMode} />}/>
   
      <Route path='/history' 
-      element={<History history={history}/>}/>
+      element={<History history={history} handleSearch={handleSearch} darkMode={darkMode} setDarkMode={setDarkMode}/>}/>
      </Routes>
     
-     <Footer/>
+     <Footer darkMode={darkMode} setDarkMode={setDarkMode}/>
     </div>
     
   )
