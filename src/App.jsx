@@ -67,24 +67,33 @@ Do not include explanations or markdown.`
              
           //  console.log(data.candidates[0].content.parts[0].text);
              
-              const text = await response.text();
-               console.log("STATUS:", response.status);
-             console.log("RESPONSE:", text);  
-                         if(!response.ok){
-                          setError("something went wrong")
-                      // console.log("API Error",data)
-                     return
-}else{   
-             const raw=data.candidates[0].content.parts[0].text;
-             console.log(data.candidates[0].content.parts[0].text);
-             const parsed=JSON.parse(raw);
-             
-             console.log(parsed)
-             setHistory(prev=>[parsed,...prev].slice(0,10))
-             localStorage.setItem('parsed',JSON.stringify([parsed,...history].slice(0,10)))
-              setMoods(parsed);
-              navigate('/result')
-            }            
+             const text = await response.text();
+
+console.log("STATUS:", response.status);
+console.log("RESPONSE:", text);
+
+if (!response.ok) {
+  setError("Something went wrong");
+  return;
+}
+
+const data = JSON.parse(text);
+
+const raw = data.candidates?.[0]?.content?.parts?.[0]?.text;
+
+if (!raw) {
+  throw new Error("Gemini returned no text");
+}
+
+        console.log("Gemini text:", raw);
+
+        const parsed = JSON.parse(raw);
+
+        console.log("Parsed result:", parsed);
+
+         setHistory(prev => [parsed, ...prev].slice(0, 10));
+         setMoods(parsed);
+         navigate('/result');
 
            }catch(e){
             setError("Server Error")

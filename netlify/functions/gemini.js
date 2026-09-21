@@ -6,7 +6,7 @@ export default async (req) => {
     console.log("Calling Gemini...");
 
     const response = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent`,
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent`,
       {
         method: "POST",
         headers: {

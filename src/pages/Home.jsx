@@ -10,6 +10,7 @@ export default function Home({
   loading,
   error,
   setError,
+  
 }) {
 
   const handleSubmit = (e) => {

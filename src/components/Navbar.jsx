@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import Toggle from "./Toggle";
 
-export default function Navbar({ darkMode, setDarkMode }) {
+export default function Navbar() {
   const location = useLocation();
 
   return (
@@ -49,10 +49,7 @@ export default function Navbar({ darkMode, setDarkMode }) {
         md:gap-8
       ">
 
-        <Toggle
-          darkMode={darkMode}
-          setDarkMode={setDarkMode}
-        />
+      
 
 
         <Link
